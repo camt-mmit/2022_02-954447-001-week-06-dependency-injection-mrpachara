@@ -1,0 +1,5 @@
+<app-dynamic-input-form
+  *ngIf="data$ | async as data"
+  [data]="data"
+  (dataChanges)="onChange($event)"
+></app-dynamic-input-form>

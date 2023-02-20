@@ -1,0 +1,6 @@
+<div *ngFor="let section of data; let i = index">
+  <a routerLink="{{ i }}" [relativeTo]="router">
+    <b>Section {{ i + 1 }}:</b>
+    <span>{{ getResult(section) }}</span>
+  </a>
+</div>
