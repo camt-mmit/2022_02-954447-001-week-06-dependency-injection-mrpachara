@@ -1,0 +1,11 @@
+<div>
+  <label for="input-id-{{ id }}">Input {{ no }}</label>
+  <input
+    #input
+    id="input-id-{{ id }}"
+    type="number"
+    [value]="value"
+    (change)="onChange(input.valueAsNumber)"
+  />
+  <button type="button" (click)="onRemove()" [disabled]="!removable">X</button>
+</div>

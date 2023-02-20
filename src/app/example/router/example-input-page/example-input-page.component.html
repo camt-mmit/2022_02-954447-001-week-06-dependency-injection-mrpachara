@@ -1,0 +1,13 @@
+<main>
+  <button type="button" (click)="addChild()">+ Section</button>
+  <div>
+    <app-section-container
+      *ngFor="let section of items; let i = index"
+      [no]="i + 1"
+      [data]="section"
+      [removable]="items.length > 1"
+      (remove)="removeChild(i)"
+      (dataChanges)="changeChild(i, $event)"
+    ></app-section-container>
+  </div>
+</main>
