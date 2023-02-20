@@ -20,6 +20,22 @@ export class FormDisplaySectionPageComponent {
     private readonly router: ActivatedRoute,
   ) {
     const index = this.router.snapshot.params['index'];
-    this.data$ = this.dataService.load().then((data) => data[index]);
+
+    // NOTE: using .then()
+    // this.data$ = this.dataService.load().then((data) => data[index]);
+
+    // NOTE: using inline async/await
+    // this.data$ = (async () => {
+    //   const data = await this.dataService.load();
+    //   return data[index];
+    // })();
+
+    // NOTE: using async method, getSection()
+    this.data$ = this.getSection(index);
+  }
+
+  async getSection(index: number): Promise<SectionType> {
+    const data = await this.dataService.load();
+    return data[index];
   }
 }
